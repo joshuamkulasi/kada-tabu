@@ -1,11 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function Contact() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [product, setProduct] = useState('');
   const [formData, setFormData] = useState({
     name: '',
@@ -17,6 +16,9 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+
+  // Get search params using the client-side API
+  const searchParams = new URLSearchParams(window.location.search);
 
   useEffect(() => {
     const productParam = searchParams.get('product');
@@ -63,7 +65,7 @@ export default function Contact() {
           <p className="text-gray-600 text-lg">We will get back to you as soon as possible.</p>
           <button
             onClick={() => router.push('/')}
-            className="mt-6 px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors text-lg"
+            className="mt-6 px-6 py-2 bg-[#f5dd7b] text-[#83580b] rounded-lg hover:bg-[#ffd966] transition-colors text-lg"
           >
             Return to Home
           </button>
@@ -95,7 +97,7 @@ export default function Contact() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-yellow-500 text-lg text-gray-900"
+              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-[#f5dd7b] focus:ring-[#f5dd7b] text-lg text-gray-900"
             />
           </div>
 
@@ -110,7 +112,7 @@ export default function Contact() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
-              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-yellow-500 text-lg text-gray-900"
+              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-[#f5dd7b] focus:ring-[#f5dd7b] text-lg text-gray-900"
             />
           </div>
 
@@ -124,7 +126,7 @@ export default function Contact() {
               name="phone"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-yellow-500 text-lg text-gray-900"
+              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-[#f5dd7b] focus:ring-[#f5dd7b] text-lg text-gray-900"
             />
           </div>
 
@@ -139,7 +141,7 @@ export default function Contact() {
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
               required
-              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-yellow-500 text-lg text-gray-900"
+              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-[#f5dd7b] focus:ring-[#f5dd7b] text-lg text-gray-900"
             />
           </div>
 
@@ -154,7 +156,7 @@ export default function Contact() {
               value={formData.product}
               onChange={(e) => setFormData({ ...formData, product: e.target.value })}
               required
-              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-yellow-500 text-lg text-gray-900"
+              className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:border-[#f5dd7b] focus:ring-[#f5dd7b] text-lg text-gray-900"
             />
           </div>
 
@@ -169,7 +171,7 @@ export default function Contact() {
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
               rows={6}
-              className="w-full h-32 px-4 border border-gray-300 rounded-lg focus:border-yellow-500 focus:ring-yellow-500 text-lg text-gray-900"
+              className="w-full h-32 px-4 border border-gray-300 rounded-lg focus:border-[#f5dd7b] focus:ring-[#f5dd7b] text-lg text-gray-900"
             />
           </div>
 

@@ -1,10 +1,6 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import { defineConfig } from 'eslint-config-next';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-export default {
+export default defineConfig({
   extends: 'next/core-web-vitals',
   rules: {
     '@next/next/no-img-element': 'off',
@@ -12,4 +8,4 @@ export default {
     'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx', '.ts'] }],
   },
-}
+});
